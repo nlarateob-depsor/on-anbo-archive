@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>安博体育 · 轻松开始</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fce1b0 0%, #f9c78f 45%, #f3b37a 100%);
+            min-height: 100vh;
+            padding: 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #2d2a24;
+            line-height: 1.6;
+        }
+
+        .page-wrap {
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        /* 导航 */
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 248, 238, 0.85);
+            backdrop-filter: blur(6px);
+            padding: 0.9rem 2rem;
+            border-radius: 60px;
+            margin-bottom: 2.8rem;
+            box-shadow: 0 6px 16px rgba(170, 100, 40, 0.12);
+        }
+
+        .nav-logo {
+            font-weight: 600;
+            font-size: 1.4rem;
+            letter-spacing: 0.5px;
+            color: #704a2c;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #5d3f26;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #a1662f;
+        }
+
+        /* hero */
+        .hero-slim {
+            text-align: center;
+            margin: 1.5rem 0 2.2rem;
+        }
+
+        .hero-slim h1 {
+            font-size: 2.8rem;
+            font-weight: 650;
+            color: #402f1d;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        .hero-slim p {
+            font-size: 1.15rem;
+            max-width: 700px;
+            margin: 1rem auto 0;
+            color: #4d3a24;
+        }
+
+        /* 卡片通用 */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            margin: 2.2rem 0;
+        }
+
+        .card {
+            background: #fffcf7;
+            border-radius: 32px;
+            padding: 1.8rem 1.8rem 2rem;
+            flex: 1 1 280px;
+            box-shadow: 0 12px 26px -8px rgba(130, 70, 20, 0.18);
+            transition: transform 0.2s ease, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 30px -10px rgba(130, 70, 20, 0.25);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #613f22;
+            border-left: 5px solid #e89b5b;
+            padding-left: 0.9rem;
+        }
+
+        .card p {
+            font-size: 0.98rem;
+            color: #3e3428;
+            margin-bottom: 0.8rem;
+        }
+
+        .card ul {
+            padding-left: 1.2rem;
+            color: #4f3d2b;
+            font-size: 0.96rem;
+            list-style: square;
+        }
+
+        .card ul li {
+            margin-bottom: 0.4rem;
+        }
+
+        /* 介绍 + 链接段落 */
+        .intro-block {
+            background: #fffcf6;
+            border-radius: 48px;
+            padding: 2.2rem 2.5rem;
+            margin: 2.5rem 0;
+            box-shadow: 0 8px 20px rgba(140, 80, 30, 0.10);
+        }
+
+        .intro-block p {
+            font-size: 1.05rem;
+            margin-bottom: 1rem;
+            color: #3d3121;
+        }
+
+        .intro-block a {
+            color: #a3511d;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid #e6b07a;
+            padding-bottom: 1px;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .intro-block a:hover {
+            border-bottom-color: #b45f2a;
+            color: #7b4421;
+        }
+
+        .faq-mini {
+            background: #fffcf6;
+            border-radius: 32px;
+            padding: 2rem 2.2rem;
+            margin: 2.2rem 0 1.2rem;
+        }
+
+        .faq-mini h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #593e22;
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 600;
+            color: #6b482b;
+            margin-bottom: 0.2rem;
+            font-size: 1.05rem;
+        }
+
+        .faq-item span {
+            color: #3f3324;
+            font-size: 0.96rem;
+        }
+
+        .divider-light {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #dbb68c, transparent);
+            margin: 1.8rem 0;
+        }
+
+        /* 底部 */
+        .footer-note {
+            margin-top: 2.8rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #4f3b26;
+            opacity: 0.8;
+        }
+
+        /* 响应式 */
+        @media (max-width: 700px) {
+            body {
+                padding: 1.5rem 1rem;
+            }
+            .nav-bar {
+                flex-direction: column;
+                gap: 0.7rem;
+                padding: 1rem 1.2rem;
+                border-radius: 40px;
+            }
+            .nav-links {
+                gap: 1.2rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero-slim h1 {
+                font-size: 2rem;
+            }
+            .intro-block {
+                padding: 1.6rem 1.2rem;
+            }
+            .card-container {
+                gap: 1.2rem;
+            }
+            .faq-mini {
+                padding: 1.5rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 450px) {
+            .hero-slim h1 {
+                font-size: 1.8rem;
+            }
+            .card h3 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- 顶部导航 -->
+    <nav class="nav-bar">
+        <div class="nav-logo">◇ 安博</div>
+        <ul class="nav-links">
+            <li><a href="#home">首页</a></li>
+            <li><a href="#scene">场景</a></li>
+            <li><a href="#faq">说明</a></li>
+        </ul>
+    </nav>
+
+    <!-- hero 区域 -->
+    <section class="hero-slim">
+        <h1>稳定入口 · 自在体验</h1>
+        <p>无论是日常浏览还是内容探索，一个可靠的页面入口总能让事情变得简单。我们在这里帮你梳理清楚。</p>
+    </section>
+
+    <!-- 三个场景模块 (卡片) -->
+    <div class="card-container" id="scene">
+        <div class="card">
+            <h3>📱 移动端优先</h3>
+            <p>在手机或平板上打开页面，布局自然适配，按钮大小恰到好处。不用缩放，不用左右滑动，轻松阅读。</p>
+            <ul>
+                <li>响应式间距与字号</li>
+                <li>触控友好的圆角控件</li>
+                <li>低负载快速加载</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>🧭 导航化内容</h3>
+            <p>从顶部导航到场景卡片，每个模块都有明确目的。想了解细节或快速跳转，都能顺手完成。</p>
+            <ul>
+                <li>分类清晰，不冗余</li>
+                <li>常见说明集中呈现</li>
+                <li>链接自然融入句子</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>🌤 暖色舒适感</h3>
+            <p>渐变暖底色配合白色卡片，视觉柔和，长时间阅读也不容易疲劳。轻量装饰，让页面呼吸感更强。</p>
+            <ul>
+                <li>低饱和度背景过渡</li>
+                <li>卡片微阴影提升层次</li>
+                <li>文字对比度适中</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 核心介绍段落 + 链接嵌入 -->
+    <div class="intro-block">
+        <p>
+            <strong>安博体育</strong> 的页面设计遵循「信息可达」原则。无论你使用什么设备，打开后都能立刻找到主要模块，而不需要层层跳转。每个卡片都对应一个实际使用场景——从手机阅读到内容归类，再到视觉氛围，都做了对应的优化。
+        </p>
+        <p>
+            如果你想了解更多关于平台的内容与功能，可以通过 <a href="https://on-anbo.com">安博体育</a> 直接访问主站，那里有更完整的介绍和实时信息。这个介绍页本身也是轻量导航的一环，帮助你快速判断是否符合自己的使用习惯。
+        </p>
+        <p>
+            我们尽量把说明写得直白一些，不用太多专业术语。比如“场景模块”就是日常会遇到的情况；“常见说明”则整理了一些简单问答，方便你对照参考。
+        </p>
+    </div>
+
+    <!-- 常见说明 / FAQ 摘要 -->
+    <div class="faq-mini" id="faq">
+        <h2>常见说明 · 摘要</h2>
+
+        <div class="faq-item">
+            <strong>这个页面是做什么的？</strong>
+            <span>它是一个轻量导航式介绍页，帮你快速了解 <a href="https://on-anbo.com" style="border-bottom: none; font-weight: 500; color: #97562b;">安博体育</a> 的页面结构、使用场景和基础信息，不涉及复杂操作。</span>
+        </div>
+        <div class="faq-item">
+            <strong>内容会频繁变化吗？</strong>
+            <span>页面结构基本保持稳定，但细节模块（如卡片文案、常见说明）会随着版本更新做调整，以保证信息新鲜且准确。</span>
+        </div>
+        <div class="faq-item">
+            <strong>移动端和桌面端体验有差别吗？</strong>
+            <span>我们针对不同屏幕做了适配，从手机到宽屏显示器都有对应的排版和间距。主要差别在于导航栏的排列方式，以及卡片之间的间距，但核心内容一致。</span>
+        </div>
+        <div class="faq-item">
+            <strong>链接会打开新窗口吗？</strong>
+            <span>当前页面中的主站链接采用常规跳转。你可以根据自己的浏览习惯决定是否新建标签页，我们不做强制。</span>
+        </div>
+        <div class="divider-light"></div>
+        <div style="font-size: 0.93rem; color: #5d472f; margin-top: 0.2rem;">
+            ⚡ 更多说明可以前往主站了解，或参考页面内的场景卡片与介绍段落。
+        </div>
+    </div>
+
+    <!-- 底部 -->
+    <div class="footer-note">
+        <span>页面内容仅供示意 · 基于实际使用场景整理</span>
+    </div>
+</div>
+</body>
+</html>
